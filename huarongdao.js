@@ -166,6 +166,13 @@ $(".background-block").on("click", ".unit-block-transparent", function(){
     console.log("move to " + posR + ":" + posC);
 
     window[activeBlock].move2NextPosition(posR, posC);
+
+    // check the game state
+    if(activeBlock != "caocao") return;
+    if(window["caocao"].position.r == 4 &&
+        window["caocao"].position.c == 2){
+        alert("congratulations!!\n game passed!!");
+    }
 });
 
 $(".background-block").on("click", ".unit-block", function(){
