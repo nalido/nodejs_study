@@ -138,6 +138,12 @@ Block.prototype.move2NextPosition = function(r, c){
     this.setPosition();
 };
 
+
+
+
+//----------------------------data base--------------------------------------
+
+
 var levelSettings = {
     "hengdaolima":
     {        
@@ -145,18 +151,56 @@ var levelSettings = {
         {
             "blockType": blockTypes.shu,
             "position": new Point(1, 1)
-        },
-        "caocao": new Block(blockTypes.cao, new Point(2, 1), $("#caocao")),
-        "huangzhon": new Block(blockTypes.shu, new Point(4, 1), $("#huangzhon")),
-        "zhangfei": new Block(blockTypes.shu, new Point(1, 3), $("#zhangfei")),
-        "zhaoyun": new Block(blockTypes.shu, new Point(4, 3), $("#zhaoyun")),
-        "guanyu": new Block(blockTypes.heng, new Point(2, 3), $("#guanyu")),
-        "bing1": new Block(blockTypes.bing, new Point(1, 5), $("#bing1")),
-        "bing2": new Block(blockTypes.bing, new Point(2, 4), $("#bing2")),
-        "bing3": new Block(blockTypes.bing, new Point(3, 4), $("#bing3")),
-        "bing4": new Block(blockTypes.bing, new Point(4, 5), $("#bing4"))
+        },      
+        "caocao": 
+        {
+            "blockType": blockTypes.cao,
+            "position": new Point(2, 1)
+        },      
+        "huangzhon": 
+        {
+            "blockType": blockTypes.shu,
+            "position": new Point(4, 1)
+        },      
+        "zhangfei": 
+        {
+            "blockType": blockTypes.shu,
+            "position": new Point(1, 3)
+        },      
+        "guanyu": 
+        {
+            "blockType": blockTypes.heng,
+            "position": new Point(2, 3)
+        },      
+        "zhaoyun": 
+        {
+            "blockType": blockTypes.shu,
+            "position": new Point(4, 3)
+        },      
+        "bing1": 
+        {
+            "blockType": blockTypes.bing,
+            "position": new Point(1, 5)
+        },      
+        "bing2": 
+        {
+            "blockType": blockTypes.bing,
+            "position": new Point(2, 4)
+        },      
+        "bing3": 
+        {
+            "blockType": blockTypes.bing,
+            "position": new Point(3, 4)
+        },      
+        "bing4": 
+        {
+            "blockType": blockTypes.bing,
+            "position": new Point(4, 5)
+        }
     }
 }
+
+
 //--------------------------begin game---------------------------------------
 
 // get game level
@@ -165,16 +209,16 @@ var p = url.indexOf("level=");
 var level = url.substr(p+6);
 var levelSetting = levelSettings[level];
 
-machao = new Block(levelSetting.machao.blockType, new Point(1, 1), $("#machao"));
-caocao = new Block(blockTypes.cao, new Point(2, 1), $("#caocao"));
-huangzhon = new Block(blockTypes.shu, new Point(4, 1), $("#huangzhon"));
-zhangfei = new Block(blockTypes.shu, new Point(1, 3), $("#zhangfei"));
-zhaoyun = new Block(blockTypes.shu, new Point(4, 3), $("#zhaoyun"));
-guanyu = new Block(blockTypes.heng, new Point(2, 3), $("#guanyu"));
-bing1 = new Block(blockTypes.bing, new Point(1, 5), $("#bing1"));
-bing2 = new Block(blockTypes.bing, new Point(2, 4), $("#bing2"));
-bing3 = new Block(blockTypes.bing, new Point(3, 4), $("#bing3"));
-bing4 = new Block(blockTypes.bing, new Point(4, 5), $("#bing4"));
+machao = new Block(levelSetting.machao.blockType, levelSetting.machao.position, $("#machao"));
+caocao = new Block(levelSetting.caocao.blockType, levelSetting.caocao.position, $("#caocao"));
+huangzhon = new Block(levelSetting.huangzhon.blockType, levelSetting.huangzhon.position, $("#huangzhon"));
+zhangfei = new Block(levelSetting.zhangfei.blockType, levelSetting.zhangfei.position, $("#zhangfei"));
+zhaoyun = new Block(levelSetting.zhaoyun.blockType, levelSetting.zhaoyun.position, $("#zhaoyun"));
+guanyu = new Block(levelSetting.guanyu.blockType, levelSetting.guanyu.position, $("#guanyu"));
+bing1 = new Block(levelSetting.bing1.blockType, levelSetting.bing1.position, $("#bing1"));
+bing2 = new Block(levelSetting.bing2.blockType, levelSetting.bing2.position, $("#bing2"));
+bing3 = new Block(levelSetting.bing3.blockType, levelSetting.bing3.position, $("#bing3"));
+bing4 = new Block(levelSetting.bing4.blockType, levelSetting.bing4.position, $("#bing4"));
 
 var activeBlock = null;
 
@@ -206,3 +250,9 @@ $(".background-block").on("click", ".unit-block", function(){
     activeBlock = $(this).attr("id");
     console.log("select: " + activeBlock);
 });
+
+
+
+
+
+
