@@ -5,9 +5,28 @@
 	width: 100px;
 	height: 100px;
 	display: inline-block;
+	position: absolute;
 	margin: 0px;
 	padding: 0px;
 	border: solid 1px white;
+	text-align: center;
+}
+
+.unit-block > span {
+	color: white;
+	margin: auto;
+	font-size: 20px;
+	line-height: 200px;
+}
+
+.unit-block-transparent{
+	background-color: rgba(189, 134, 52, 0);
+	width: 100px;
+	height: 100px;
+	display: inline-block;
+	margin: 0px;
+	padding: 0px;
+	z-index: 10;
 }
 
 .block-row{
@@ -16,18 +35,26 @@
 }
 
 .background-block{
-	width: 400px;
-	height: 500px;
-	background-color: darkgreen;
+	width: 440px;
+	height: 540px;
+	background-color: black;
 	border-style: ridge;
 	border-color: saddlebrown;
 	border-width: 20px;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .background-block::after{
-	content: " ";
+	content: "";
+	position: absolute;
 	width: 200px;
 	height: 20px;
-	background-color: white;
+	background-color: black;
 	z-index: 10;
+	margin-left: auto;
+	margin-right: auto;
+	bottom: -20px;
+	left: 100px;
 }
