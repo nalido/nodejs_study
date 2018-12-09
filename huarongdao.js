@@ -138,15 +138,42 @@ Block.prototype.move2NextPosition = function(r, c){
     this.setPosition();
 };
 
-machao = new Block(blockTypes.shu, new Point(1, 1), $("#machao"));
+var levelSettings = {
+    "hengdaolima":
+    {        
+        "machao": 
+        {
+            "blockType": blockTypes.shu,
+            "position": new Point(1, 1)
+        },
+        "caocao": new Block(blockTypes.cao, new Point(2, 1), $("#caocao")),
+        "huangzhon": new Block(blockTypes.shu, new Point(4, 1), $("#huangzhon")),
+        "zhangfei": new Block(blockTypes.shu, new Point(1, 3), $("#zhangfei")),
+        "zhaoyun": new Block(blockTypes.shu, new Point(4, 3), $("#zhaoyun")),
+        "guanyu": new Block(blockTypes.heng, new Point(2, 3), $("#guanyu")),
+        "bing1": new Block(blockTypes.bing, new Point(1, 5), $("#bing1")),
+        "bing2": new Block(blockTypes.bing, new Point(2, 4), $("#bing2")),
+        "bing3": new Block(blockTypes.bing, new Point(3, 4), $("#bing3")),
+        "bing4": new Block(blockTypes.bing, new Point(4, 5), $("#bing4"))
+    }
+}
+//--------------------------begin game---------------------------------------
+
+// get game level
+var url = window.location.href;
+var p = url.indexOf("level=");
+var level = url.substr(p+6);
+var levelSetting = levelSettings[level];
+
+machao = new Block(levelSetting.machao.blockType, new Point(1, 1), $("#machao"));
 caocao = new Block(blockTypes.cao, new Point(2, 1), $("#caocao"));
 huangzhon = new Block(blockTypes.shu, new Point(4, 1), $("#huangzhon"));
 zhangfei = new Block(blockTypes.shu, new Point(1, 3), $("#zhangfei"));
 zhaoyun = new Block(blockTypes.shu, new Point(4, 3), $("#zhaoyun"));
 guanyu = new Block(blockTypes.heng, new Point(2, 3), $("#guanyu"));
 bing1 = new Block(blockTypes.bing, new Point(1, 5), $("#bing1"));
-bing2 = new Block(blockTypes.bing, new Point(2, 5), $("#bing2"));
-bing3 = new Block(blockTypes.bing, new Point(3, 5), $("#bing3"));
+bing2 = new Block(blockTypes.bing, new Point(2, 4), $("#bing2"));
+bing3 = new Block(blockTypes.bing, new Point(3, 4), $("#bing3"));
 bing4 = new Block(blockTypes.bing, new Point(4, 5), $("#bing4"));
 
 var activeBlock = null;
