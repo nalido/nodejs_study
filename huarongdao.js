@@ -207,6 +207,7 @@ var levelSettings = {
 var url = window.location.href;
 var p = url.indexOf("level=");
 var level = url.substr(p+6);
+if(p == -1) level = "hengdaolima";
 var levelSetting = levelSettings[level];
 
 machao = new Block(levelSetting.machao.blockType, levelSetting.machao.position, $("#machao"));
